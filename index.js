@@ -117,7 +117,9 @@ const alpha = ["a", 66, "c", "d"];
 
 // Fetch
 const apiUrL = "https://rickandmortyapi.com/api/character/";
-const randomNumber = () => Math.floor(Math.random() * 20) + 1;
+
+// Create random number
+const randomNumber = () => Math.floor(Math.random() * 100) + 1;
 
 // Write an async function - don't forget await, try and catch
 async function getDataFromAPI(url, number) {
@@ -138,8 +140,9 @@ async function getDataFromAPI(url, number) {
   }
 }
 
+// This is where magic is born
 const ourData = getDataFromAPI(apiUrL, randomNumber)
-.then((data) => {
-  console.log(data)
-})
-.catch((error) => console.log(error));
+  .then((data) => {
+    console.log(data);
+  })
+  .catch((error) => console.log(error));
