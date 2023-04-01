@@ -138,5 +138,8 @@ async function getDataFromAPI(url, number) {
   }
 }
 
-const ourData = await getDataFromAPI(apiUrL, randomNumber);
-console.log(ourData);
+const ourData = getDataFromAPI(apiUrL, randomNumber)
+.then((data) => {
+  console.log(data)
+})
+.catch((error) => console.log(error));
