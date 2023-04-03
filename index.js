@@ -129,20 +129,28 @@ async function getDataFromAPI(url, number) {
     if (!response.ok) {
       // If something went wrong - logging it is ok for now
       console.log(`Something went wrong`);
-    } else {
+    }
       // If everything went well, return the data
       const data = await response.json();
       return data;
-    }
+    
   } catch (error) {
     // Catch any error - logging it is ok for now
     console.log(error.message);
   }
 }
 
-// This is where magic is born
-const ourData = getDataFromAPI(apiUrL, randomNumber)
-  .then((data) => {
-    console.log(data);
-  })
-  .catch((error) => console.log(error));
+const ourData = await getDataFromAPI(apiUrL, randomNumber)
+
+const container = document.querySelector('.image')
+container.src = ourData.image
+
+/*
+.then((data) => {
+  console.log(data)
+  return data
+})
+.catch((error) => console.log(error));
+
+
+*/
